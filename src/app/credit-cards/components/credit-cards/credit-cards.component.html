@@ -1,0 +1,8 @@
+<app-create-credit-card [cardTypes]="types$ | async"></app-create-credit-card>
+<div class="card-grid">
+  <div style="align-self: center" *ngIf="showSpinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <app-credit-card-form [card]="card" [edit]="true" [cardTypes]="types$ | async" *ngFor="let card of creditCards$ | async">
+  </app-credit-card-form>
+</div>

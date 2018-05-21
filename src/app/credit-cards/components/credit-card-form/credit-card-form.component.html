@@ -1,0 +1,54 @@
+<form [formGroup]="creditCardForm" class="card-container-form" (ngSubmit)="onSubmit()">
+  <mat-card [class.create]="!edit">
+    <mat-card-header style="align-items: baseline">
+      <mat-icon style="order: -1; margin-right: 1em;">credit_card</mat-icon>
+      <mat-card-title>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="A name for the card..." formControlName="name" required>
+        </mat-form-field>
+      </mat-card-title>
+      <span style="flex:1"></span>
+      <button mat-icon-button (click)="delete()" type="button">
+        <mat-icon color="primary">{{edit?'delete_forever':'add_circle'}}</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="card-content-column">
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="A short description for the card..." formControlName="description">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Issuer</mat-label>
+        <input matInput placeholder="The name of the bank..." formControlName="issuingOrganization">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Commission Percentage</mat-label>
+        <input matInput placeholder="0.05" formControlName="commissionPercentage" required>
+      </mat-form-field>
+      <mat-form-field [floatLabel]="'auto'">
+        <mat-label>Fixed Commission per transaction</mat-label>
+        <span matPrefix>€&nbsp;</span>
+        <input matInput placeholder="0.01" formControlName="commissionFixed" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Type" formControlName="type">
+          <mat-option *ngFor="let cardType of cardTypes" [value]="cardType.id" required>
+            {{ cardType.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-card-actions style="overflow: hidden;">
+        <div [@flyInOut]="(!edit || creditCardForm.dirty)?'in':'out'" class="footer-container">
+          <button mat-fab color="primary" type="submit">
+            <mat-icon aria-label="Save">save</mat-icon>
+          </button>
+          <button mat-fab color="warn" type="reset" (click)="cancel()">
+            <mat-icon aria-label="Cancel">cancel</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

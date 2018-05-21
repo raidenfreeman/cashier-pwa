@@ -1,0 +1,25 @@
+.flex-row {
+  display: flex;
+  justify-content: center;
+}
+
+.creation-card {
+  width: 27em
+}
+
+// .animated
+// .gg:hover {
+//   height: 30em;
+//   width: 27em;
+//   border-radius: 0 2em 0 2em;
+// }
+.gg {
+  // position: absolute;
+  top: 0;
+  height: unset;
+  bottom: 0;
+  background-color: rgb(194, 24, 91);
+  width: 25em;
+  margin: 1em auto;
+  border-radius: 0 2em 0 2em;
+}

@@ -1,0 +1,8 @@
+<div class="flex-row">
+  <button [disableRipple]="true" [style.display]="showButton?'block':'none'" (@btnState.done)="animationDone($event)" [@btnState]="buttonState"
+    mat-fab color="primary" (click)="addCard()" type="button">
+    <mat-icon aria-label="Add">add</mat-icon>
+  </button>
+  <app-credit-card-form class="creation-card" *ngIf="!showButton" (onCancel)="handleCancel()" [edit]="false" [cardTypes]="cardTypes" [card]="newCard">
+  </app-credit-card-form>
+</div>
