@@ -7,8 +7,8 @@ import { Injectable } from "@angular/core";
 import { from, Observable } from "rxjs";
 import { CreditCard, CreditCardType } from "../../model";
 
-const creditCardTypesCollection: string = "creditCardTypes";
-const creditCardsCollection: string = "creditCards";
+const creditCardTypesCollectionSelector: string = "creditCardTypes";
+const creditCardsCollectionSelector: string = "creditCards";
 @Injectable({
   providedIn: "root"
 })
@@ -17,10 +17,10 @@ export class CreditCardsService {
   private cardsCollection: AngularFirestoreCollection<CreditCard>;
   constructor(private db: AngularFirestore) {
     this.cardTypesCollection = this.db.collection<CreditCardType>(
-      creditCardTypesCollection
+      creditCardTypesCollectionSelector
     );
     this.cardsCollection = this.db.collection<CreditCard>(
-      creditCardsCollection
+      creditCardsCollectionSelector
     );
   }
 

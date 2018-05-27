@@ -1,0 +1,10 @@
+<!-- <mat-form-field> -->
+<mat-select placeholder="Type" formControlName="type">
+  <mat-option *ngFor="let cashier of cashiers" [value]="cashier.id" required>
+    {{ cashier.name }}
+  </mat-option>
+</mat-select>
+
+<app-cashier-display [cashier]="selectedCashier">
+
+</app-cashier-display>

@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: "./credit-cards/credit-cards.module#CreditCardsModule"
   },
   {
+    path: "cashiers",
+    loadChildren: "./cashier/cashier.module#CashierModule"
+  },
+  {
     path: "**",
     redirectTo: "/cards"
   }
@@ -21,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
